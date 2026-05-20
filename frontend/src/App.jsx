@@ -39,6 +39,16 @@ function App() {
       <Routes>
         <Route
           path="/"
+          element={
+            isUserNotNull ? (
+              <Navigate to="/homepage" />
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
+        />
+        <Route
+          path="/homepage"
           element={isUserNotNull ? <HomePage /> : <Navigate to="/login" />}
         />
         <Route
