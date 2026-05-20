@@ -20,7 +20,7 @@ export const useAuthStore = create((set, get) => ({
   checkAuth: async () => {
     try {
       const res = await api.get("/auth/check-auth");
-
+      console.log(res.data);
       set({ authUser: res.data });
       get().connectSocket();
     } catch (error) {

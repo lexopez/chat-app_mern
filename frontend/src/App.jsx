@@ -21,7 +21,13 @@ function App() {
   }, [checkAuth]);
 
   const isUserNotNull = authUser !== null;
-  console.log("user is not null", isUserNotNull);
+  if (isUserNotNull) {
+    console.log("user is not null", isUserNotNull);
+    console.log("authUser", authUser);
+  } else {
+    console.log("user is null", isUserNotNull);
+    console.log("authUser", authUser);
+  }
 
   if (isCheckingAuth && !authUser) {
     return (
