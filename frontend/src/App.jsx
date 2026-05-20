@@ -1,8 +1,8 @@
-import { Route, Routes } from "react-router-dom";
-// import HomePage from "./pages/HomePage";
-// import SignupPage from "./pages/SignupPage";
-// import SettingsPage from "./pages/SettingsPage";
-// import ProfilePage from "./pages/ProfilePage";
+import { Navigate, Route, Routes } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import SignupPage from "./pages/SignupPage";
+import SettingsPage from "./pages/SettingsPage";
+import ProfilePage from "./pages/ProfilePage";
 import LoginPage from "./pages/LoginPage";
 import Navbar from "./components/Navbar";
 
@@ -22,6 +22,8 @@ function App() {
     checkAuth();
   }, [checkAuth]);
 
+  const isUserNotNull = authUser !== null;
+
   if (isCheckingAuth && !authUser) {
     return (
       <div className="flex items-center justify-center h-screen">
@@ -35,24 +37,23 @@ function App() {
       <Navbar />
 
       <Routes>
-        <Route path="/" element={<LoginPage />} />
-        {/* <Route
+        <Route
           path="/"
-          element={authUser ? <HomePage /> : <Navigate to="/login" />}
+          element={isUserNotNull ? <HomePage /> : <Navigate to="/login" />}
         />
         <Route
           path="/signup"
-          element={!authUser ? <SignupPage /> : <Navigate to="/" />}
+          element={!isUserNotNull ? <SignupPage /> : <Navigate to="/" />}
         />
         <Route
           path="/login"
-          element={!authUser ? <LoginPage /> : <Navigate to="/" />}
+          element={!isUserNotNull ? <LoginPage /> : <Navigate to="/" />}
         />
         <Route path="/settings" element={<SettingsPage />} />
         <Route
           path="/profile"
-          element={authUser ? <ProfilePage /> : <Navigate to="/login" />}
-        /> */}
+          element={isUserNotNull ? <ProfilePage /> : <Navigate to="/login" />}
+        />
       </Routes>
 
       <Toaster />
