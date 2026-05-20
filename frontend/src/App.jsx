@@ -16,13 +16,12 @@ function App() {
   const { authUser, checkAuth, isCheckingAuth } = useAuthStore();
   const { theme } = useThemeStore();
 
-  console.log(authUser);
-
   useEffect(() => {
     checkAuth();
   }, [checkAuth]);
 
   const isUserNotNull = authUser !== null;
+  console.log("user is not null", isUserNotNull);
 
   if (isCheckingAuth && !authUser) {
     return (
