@@ -29,6 +29,8 @@ app.use(
 );
 // app.use(cors());
 
+app.get("/api/health", (req, res) => res.send("OK"));
+
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/messages", messageRoutes);
 
