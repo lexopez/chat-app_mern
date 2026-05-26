@@ -58,10 +58,10 @@ function App() {
           element={!isUserNotNull ? <LoginPage /> : <Navigate to="/" />}
         />
         <Route path="/settings" element={<SettingsPage />} />
-        <Route
+        {/* <Route
           path="/profile"
           element={isUserNotNull ? <ProfilePage /> : <Navigate to="/login" />}
-        />
+        /> */}
       </Routes>
 
       <Toaster />
